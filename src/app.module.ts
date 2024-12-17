@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as Joi from 'joi';
 import { Movie } from './movie/entity/movie.entity';
+import { MovieDetail } from './movie/entity/movie-detail';
 
 @Module({
   imports:
@@ -30,6 +31,7 @@ import { Movie } from './movie/entity/movie.entity';
           database: configService.get<string>('DB_DATABASE'),
           entities: [
             Movie,
+            MovieDetail,
           ],
           synchronize: true,
         }),
